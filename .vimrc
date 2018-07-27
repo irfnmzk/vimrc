@@ -15,6 +15,15 @@ filetype plugin indent on
 " TODO: Pick a leader key
 " let mapleader = ","
 
+" Auto relative number
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
 " Security
 set modelines=0
 
