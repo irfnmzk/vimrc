@@ -6,6 +6,9 @@ filetype off
 
 " TODO: Load plugins here (pathogen or vundle)
 
+call plug#begin('~/.vim/plugged')
+call plug#end()
+
 " Turn on syntax highlighting
 syntax on
 
