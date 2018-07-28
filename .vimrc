@@ -8,9 +8,12 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -20,6 +23,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Toggle NerdTree using ctrl + n 
 map <C-n> :NERDTreeToggle<CR>
+
+" Keymap for fuzzy finder
+map ; :Files<CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -87,7 +93,6 @@ set ttyfast
 set laststatus=2
 
 " Last line
-set showmode
 set showcmd
 
 " Searching
