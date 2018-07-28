@@ -8,10 +8,18 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
+
+" Auto open NERDTree when no file specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Toggle NerdTree using ctrl + n 
+map <C-n> :NERDTreeToggle<CR>
 
 " Turn on syntax highlighting
 syntax on
@@ -24,6 +32,9 @@ filetype plugin indent on
 
 " Auto relative number
 :set number relativenumber
+
+" Hide status info
+set noshowmode
 
 :augroup numbertoggle
 :  autocmd!
